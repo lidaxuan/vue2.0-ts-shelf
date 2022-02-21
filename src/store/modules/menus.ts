@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: 李大玄
  * @Date: 2022-02-19 11:55:02
- * @FilePath: /vue-ts-shelf/src/store/modules/menus.ts
+ * @FilePath: /vue2.0-ts-shelf/src/store/modules/menus.ts
  */
 import { VuexModule, Module, Mutation, Action, getModule } from 'vuex-module-decorators'
 import store from '@/store'
@@ -11,7 +11,7 @@ interface meta {
   authCode?: string
 }
 
-interface EnumItem {
+export interface EnumItem {
   id: string| number
   name: string
   icon: string
@@ -22,7 +22,7 @@ interface EnumItem {
 }
 
 
-@Module({ dynamic: true, store, name: 'errorLog' })
+@Module({ dynamic: true, store, name: 'Enums' })
 class Enums extends VuexModule {
   public enums: EnumItem[] = [
     {
@@ -31,23 +31,23 @@ class Enums extends VuexModule {
   ]
 
   @Mutation
-  private ADD_ERROR_LOG(log: any) {
-    this.enums.push(log)
+  private ADD_ENUM(item: EnumItem) {
+    this.enums.push(item)
   }
 
   @Mutation
-  private CLEAR_ERROR_LOG() {
+  private CLEAR_ENUM() {
     this.enums.splice(0)
   }
 
   @Action
-  public AddErrorLog(log: any) {
-    this.ADD_ERROR_LOG(log)
+  public AddEnum(item: EnumItem) {
+    this.ADD_ENUM(item)
   }
 
   @Action
-  public ClearErrorLog() {
-    this.CLEAR_ERROR_LOG()
+  public ClearEnum() {
+    this.CLEAR_ENUM()
   }
 }
 
