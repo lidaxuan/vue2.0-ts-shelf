@@ -1,9 +1,3 @@
-/*
- * @Description: 
- * @Author: 李大玄
- * @Date: 2022-02-19 16:52:26
- * @FilePath: /vue2.0-ts-shelf/src/layout/mixins.ts
- */
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
